@@ -5,7 +5,7 @@
 %global inst_dir %{moz_extensions}/%{firefox_app_id}/%{src_ext_id}
 
 Name:           mozilla-flashblock
-Version:        1.5.17
+Version:        1.5.18
 Release:        1%{?dist}
 Summary:        Flash blocking extension for Mozilla Firefox
 
@@ -46,8 +46,11 @@ rm -rf %{buildroot}
 %{inst_dir}
 
 %changelog
+* Fri Dec 19 2014 Ian Firns <firnsy@kororaproject.org>- 1.5.18-1
+- Update to 1.5.18 release.
+
 * Sun Jun 30 2013 Chris Smart <csmart@kororaproject.org>- 1.5.17-1
-- Update to 1.5.16 release.
+- Update to 1.5.17 release.
 
 * Mon Jul 02 2012 Chris Smart <chris@kororaa.org>- 1.5.16-1
 - Update to 1.5.16 release.
