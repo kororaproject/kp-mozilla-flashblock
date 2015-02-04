@@ -6,13 +6,14 @@
 
 Name:           mozilla-flashblock
 Version:        1.5.18
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Flash blocking extension for Mozilla Firefox
 
 Group:          Applications/Internet
 License:        MPL 1.1 or GPL 2.0 or LGPL 2.1
 URL:            http://flashblock.mozdev.org
 Source0:        http://downloads.mozdev.org/flashblock/flashblock-%{version}.xpi
+Source1:	whitelist.js
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
@@ -36,7 +37,7 @@ install -Dp -m 644 install.rdf %{buildroot}%{inst_dir}/install.rdf
 install -Dp -m 644 chrome.manifest %{buildroot}%{inst_dir}/chrome.manifest
 install -Dp -m 644 chrome/flashblock.jar %{buildroot}%{inst_dir}/chrome/flashblock.jar
 install -Dp -m 644 defaults/preferences/flashblock.js %{buildroot}%{inst_dir}/defaults/preferences/flashblock.js
-
+install -Dp -m 644 %{SOURCE1} %{buildroot}%{inst_dir}/defaults/preferences/whitelist.js
 
 %clean
 rm -rf %{buildroot}
@@ -46,6 +47,9 @@ rm -rf %{buildroot}
 %{inst_dir}
 
 %changelog
+* Wed Feb 04 2015 Matthew Weaver <matthew@kororaproject.org>- 1.5.18-2
+- Add whitelist for youtube to workaround flashblock bug with html5
+
 * Fri Dec 19 2014 Ian Firns <firnsy@kororaproject.org>- 1.5.18-1
 - Update to 1.5.18 release.
 
